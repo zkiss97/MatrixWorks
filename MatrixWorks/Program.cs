@@ -44,28 +44,11 @@ namespace MatrixWorks
             Console.WriteLine("Oszlopok száma:");
             cols = int.Parse(Console.ReadLine());
 
-            /*
-            for (int i = 0; i < rows; i++)
-            {
-                Console.WriteLine("\n{0}. sor elemei:", i + 1);
-                for (int j = 0; j < cols; j++)
-                {
-                    
-                    
-                    Console.WriteLine("{0} sor {1} elem", i + 1, j + 1);
-                    matrix[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
-            */
-
             while (folytat = true)
             {
                 Console.WriteLine("Folytatod a beolvasást? (i/n)");
                 key = Console.ReadLine();
-                /*f ((key != "i") || (key != "n"))
-                {
-                    Console.WriteLine("Érvénytelen");
-                }*///
+
                 if (key == "n")
                 {
                     folytat = false;
