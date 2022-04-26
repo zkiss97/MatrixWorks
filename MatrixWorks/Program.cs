@@ -9,27 +9,23 @@ namespace MatrixWorks
 {
     class NewMatrix
     {
-        private int[,] matrix = new int[10, 10];
+        private int[,,] matrix;
         private int rows;
         private int cols;
         private int sorindex;
         private int oszlopindex;
         private int minuszegydb = 0;
+        private int ittvan;
         private string key;
-
-        public NewMatrix(int rows, int cols)
-        {
-            this.rows = rows;
-            this.cols = cols;
-            this.sorindex = sorindex;
-            this.oszlopindex = oszlopindex;
-            this.key = "a";
-        }
 
         public NewMatrix()
         {
-            this.rows = 0;
-            this.cols = 0;
+            Console.WriteLine("Add meg hány sora és oszlopa lesz a mátrixnak:");
+            Console.WriteLine("Sorok száma:");
+            rows = int.Parse(Console.ReadLine());
+            Console.WriteLine("Oszlopok száma:");
+            cols = int.Parse(Console.ReadLine());
+            this.matrix = new int[rows, cols, 2];
             this.sorindex = -1;
             this.oszlopindex = -1;
             this.key = "";
@@ -38,13 +34,8 @@ namespace MatrixWorks
         public void Fill()
         {
             bool folytat = true;
-            Console.WriteLine("Add meg hány sora és oszlopa lesz a mátrixnak:");
-            Console.WriteLine("Sorok száma:");
-            rows = int.Parse(Console.ReadLine());
-            Console.WriteLine("Oszlopok száma:");
-            cols = int.Parse(Console.ReadLine());
 
-            while (folytat = true)
+            while (folytat)
             {
                 Console.WriteLine("Folytatod a beolvasást? (i/n)");
                 key = Console.ReadLine();
@@ -56,34 +47,39 @@ namespace MatrixWorks
                 }
                 if (key == "i")
                 {
-                    Console.WriteLine("Add meg a sort:");
+                    Console.WriteLine("Add meg a sorindexet:");
                     sorindex = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Add meg az oszlopot:");
+                    Console.WriteLine("Add meg az oszlopindexet:");
                     oszlopindex = int.Parse(Console.ReadLine());
 
-                    if (matrix[sorindex - 1, oszlopindex - 1] != 0)
+                    if (matrix[sorindex - 1, oszlopindex - 1, 1] != 0)
                     {
                         Console.WriteLine("A megadott helyen már szerepel érték");
                         continue;
                     }
 
                     Console.WriteLine("Add meg az értéket:");
-                    matrix[sorindex - 1, oszlopindex - 1] = int.Parse(Console.ReadLine());
-                    if (matrix[sorindex - 1, oszlopindex - 1] < 0)
+                    matrix[sorindex - 1, oszlopindex - 1, 0] = int.Parse(Console.ReadLine());
+                    matrix[sorindex - 1, oszlopindex - 1, 1] = 1;
+
+                    if (matrix[sorindex - 1, oszlopindex - 1, 0] < 0)
                     {
                         Console.WriteLine("A megadott érték nem felel meg a beviteli feltételeknek, \naz abszolút értéke jelenik meg a tömbben.");
-                        matrix[sorindex - 1, oszlopindex - 1] = Math.Abs(matrix[sorindex - 1, oszlopindex - 1]);
+                        matrix[sorindex - 1, oszlopindex - 1, 0] = Math.Abs(matrix[sorindex - 1, oszlopindex - 1, 0]);
                     }
                 }
             }
+        }
 
+        public void Count ()
+        {
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (matrix[i, j, 0] == 0)
                     {
-                        matrix[i, j] = -1;
+                        matrix[i, j, 0] = -1;
                         minuszegydb++;
                     }
                 }
@@ -97,7 +93,7 @@ namespace MatrixWorks
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    Console.Write("{0} ", matrix[i, j]);
+                    Console.Write("{0} ", matrix[i, j, 0]);
                 }
                 Console.WriteLine("\n");
             }
