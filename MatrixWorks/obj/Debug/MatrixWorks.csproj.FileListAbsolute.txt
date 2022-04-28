@@ -1,0 +1,7 @@
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\bin\Debug\MatrixWorks.exe.config
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\bin\Debug\MatrixWorks.exe
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\bin\Debug\MatrixWorks.pdb
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\obj\Debug\MatrixWorks.csproj.AssemblyReference.cache
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\obj\Debug\MatrixWorks.csproj.CoreCompileInputs.cache
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\obj\Debug\MatrixWorks.exe
+C:\Users\kovac\Source\Repos\KissZoltan\MatrixWorks\obj\Debug\MatrixWorks.pdb

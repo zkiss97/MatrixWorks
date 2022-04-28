@@ -77,9 +77,8 @@ namespace MatrixWorks
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if (matrix[i, j, 0] == 0)
+                    if (matrix[i, j, 1] == 0)
                     {
-                        matrix[i, j, 0] = -1;
                         minuszegydb++;
                     }
                 }
@@ -111,6 +110,7 @@ namespace MatrixWorks
         {
             NewMatrix nm = new NewMatrix();
             nm.Fill();
+            nm.Count();
             nm.Screen();
 
 
